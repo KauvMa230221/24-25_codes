@@ -1,0 +1,135 @@
+# Github Classroom autograding action 
+# we give 1 point per fully working exercise
+
+# OPTIONAL 
+# - consider to use matrix: <https://docs.github.com/de/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow>
+# - get rid of `setup-command` -> install console simulator before performing the tests
+
+# TODO: (after fork/template creation)
+# 1. set names in first env part
+# 2. add additonal steps, if you have more than 2 exercises, set ID!
+# 3. add additional exercies to autograding reporter
+
+name: Autograding Tests
+
+on:
+  push:
+    branches: [ "main", "solution" ]
+  pull_request:
+    branches: [ "main", "solution" ]
+  repository_dispatch:    
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+env:
+  EX01: "Ex01-Car"
+  EX02: "Ex02-Point"
+  EX03: "Ex03-Greetings"
+  EX04: "Ex04-Robot"
+  EX05: "Ex05-PasswordChecker"
+  EX06: "Ex06-TVSeries"
+  EX07: "Ex07-TicTacToe"
+  
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: ${{ env.EX01 }}
+      id: EX01
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test_${{ env.EX01 }}
+        setup-command: mvn -B validate --file ./consoleSimulatorInstall/pom.xml
+        command: mvn -B test --file "./${{ env.EX01 }}/pom.xml"
+        timeout: 1
+        max-score: 1
+
+    - name: ${{ env.EX02 }}
+      id: EX02
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test_${{ env.EX02 }}
+        setup-command: mvn -B validate --file ./consoleSimulatorInstall/pom.xml    
+        command: mvn -B test --file "./${{ env.EX02 }}/pom.xml"
+        timeout: 1
+        max-score: 1
+
+    - name: ${{ env.EX03 }}
+      id: EX03
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test_${{ env.EX03 }}
+        setup-command: mvn -B validate --file ./consoleSimulatorInstall/pom.xml    
+        command: mvn -B test --file "./${{ env.EX03 }}/pom.xml"
+        timeout: 1
+        max-score: 1
+    
+    - name: ${{ env.EX04 }}
+      id: EX04
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test_${{ env.EX04 }}
+        setup-command: mvn -B validate --file ./consoleSimulatorInstall/pom.xml    
+        command: mvn -B test --file "./${{ env.EX04 }}/pom.xml"
+        timeout: 1
+        max-score: 1
+  
+    - name: ${{ env.EX05 }}
+      id: EX05
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test_${{ env.EX05 }}
+        setup-command: mvn -B validate --file ./consoleSimulatorInstall/pom.xml    
+        command: mvn -B test --file "./${{ env.EX05 }}/pom.xml"
+        timeout: 1
+        max-score: 1
+    
+    - name: ${{ env.EX06 }}
+      id: EX06
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test_${{ env.EX06 }}
+        setup-command: mvn -B validate --file ./consoleSimulatorInstall/pom.xml    
+        command: mvn -B test --file "./${{ env.EX06 }}/pom.xml"
+        timeout: 1
+        max-score: 1
+
+
+    - name: ${{ env.EX07 }}
+      id: EX07
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test_${{ env.EX07 }}
+        setup-command: mvn -B validate --file ./consoleSimulatorInstall/pom.xml    
+        command: mvn -B test --file "./${{ env.EX06 }}/pom.xml"
+        timeout: 1
+        max-score: 1
+
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        EX01_RESULTS: "${{steps.EX01.outputs.result}}"
+        EX02_RESULTS: "${{steps.EX02.outputs.result}}"
+        EX03_RESULTS: "${{steps.EX03.outputs.result}}"
+        EX04_RESULTS: "${{steps.EX04.outputs.result}}"
+        EX05_RESULTS: "${{steps.EX05.outputs.result}}"
+        EX06_RESULTS: "${{steps.EX06.outputs.result}}"
+        EX07_RESULTS: "${{steps.EX07.outputs.result}}"
+        
+        # TODO: add additonal results here
+      with:        
+        runners: EX01,EX02,EX03,EX04,EX05,EX06,EX07
+        # TODO: add additonal IDs in list above
