@@ -4,18 +4,35 @@ topic: java, oop basics
 tag: 2425-2xHIT
 ---
 
-# Car
+# Greetings
 
-Erstellen Sie eine Klasse **Car**.
+Erstellen Sie eine Klasse **Greetigns**.
 
-Die Klasse soll 2 Attribute haben:
+Diese soll aus den Attributen eine Anrede generieren:
 
-* String **name**
-* double **kmTotal**
+Z.B:
+
+```txt
+Sehr geehrter Herr DI Max Mustermann.
+```
+```txt
+Sehr geehrter Frau Dr Mia Musterfrau.
+```
+```txt
+Sehr geehrter Person Rudi Ratte.
+```
+
+
+Die Klasse soll 4 Attribute haben:
+
+* String **gender**;
+* String **firstName**;
+* String **lastName**;
+* String **title**;
 
 Die Klasse soll 6 Methoden haben
 
-* **Konstruktor** Damit sollen die beiden Attribute initialisiert werden. Zuerst name, dann kmTotal.
+* **Konstruktor** Damit sollen die beiden Attribute auf einen Standardwert initialisiert werden.
 * **Getter** Getter für die Attribute
 * **Setter** Setter für die Attribute
-* **drive(double km)** Soll den km-Stand kmTotal um km erhöhen.
+* **String greet()** Soll aus den Daten eine Anrede als String generieren.
