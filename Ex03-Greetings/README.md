@@ -6,7 +6,7 @@ tag: 2425-2xHIT
 
 # Greetings
 
-Erstellen Sie eine Klasse **Greetigns**.
+Erstellen Sie eine Klasse **Greetings**.
 
 Diese soll aus den Attributen eine Anrede generieren:
 
