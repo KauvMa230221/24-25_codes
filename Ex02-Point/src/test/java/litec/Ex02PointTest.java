@@ -48,13 +48,13 @@ public class Ex02PointTest {
     @Test
     public void point_test_dist1() {
         Point p = new Point(10,10);
-        assertEquals(14.14213, p.distToOrigin(), 0.01);
+        assertEquals(14.14213, p.disToOrigin(), 0.01);
     }
 
     @Test
     public void point_test_dist2() {
         Point p = new Point(10,10);
         p.movePoint(5,2);
-        assertEquals(19.20937, p.distToOrigin(), 0.01);
+        assertEquals(19.20937, p.disToOrigin(), 0.01);
     }
 }
