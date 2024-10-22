@@ -35,4 +35,7 @@ Die Klasse soll 6 Methoden haben
 * **Konstruktor** Damit sollen die 4 Attribute auf einen Standardwert initialisiert werden (z.B, "Frau Mag Martha Musterfrau").
 * **Getter** Getter für die Attribute
 * **Setter** Setter für die Attribute
-* **String greet()** Soll aus den Daten eine Anrede als String generieren.
+* **String greet()** Soll aus den Daten eine Anrede als String generieren. Wenn die Variable Gender den Wert 
+  * "male" hat soll Herr in der Anrede stehen.
+  * "female" hat soll Frau in der Anrede stehen.
+  * sonst soll Person in der Anrede stehen.
