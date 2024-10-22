@@ -5,9 +5,19 @@ package litec;
  */
 public class Ex01Car
 {
-    public static void main(String[] args)
-    {
-        System.out.println("Hello World");
-        //Diese Funktion können Sie zum testen der Klasse Car verwenden.
+    public static void main(String[] args) {
+      Car bmw = new Car("BMW", 0.0);
+      Car opel = new Car("Opel" , 100.0);
+
+
+      bmw.drive(1000);
+      opel.drive(100);
+
+        System.out.println(bmw.getName()+ "km total:" +bmw.getKmTotal()) ;
+        System.out.println(opel.getName()+ "km total:"+opel.getKmTotal());
+
     }
+
+
+
 }
