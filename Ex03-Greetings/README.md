@@ -32,7 +32,7 @@ Die Klasse soll 4 Attribute haben:
 
 Die Klasse soll 6 Methoden haben
 
-* **Konstruktor** Damit sollen die beiden Attribute auf einen Standardwert initialisiert werden.
+* **Konstruktor** Damit sollen die 4 Attribute auf einen Standardwert initialisiert werden (z.B, "Frau Mag Martha Musterfrau").
 * **Getter** Getter für die Attribute
 * **Setter** Setter für die Attribute
 * **String greet()** Soll aus den Daten eine Anrede als String generieren.
