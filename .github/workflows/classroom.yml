@@ -114,7 +114,7 @@ jobs:
       with:
         test-name: Test_${{ env.EX07 }}
         setup-command: mvn -B validate --file ./consoleSimulatorInstall/pom.xml    
-        command: mvn -B test --file "./${{ env.EX06 }}/pom.xml"
+        command: mvn -B test --file "./${{ env.EX07 }}/pom.xml"
         timeout: 1
         max-score: 1
 
